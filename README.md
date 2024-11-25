@@ -1,66 +1,98 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ENGENHARIA SOFTWARE
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Requisitos
+* xxx
+* Software Git para controle de versão e gerenciamento de código-fonte
 
-## About Laravel
+## Como trabalhar com o repositório forkado do GitHub no VS Code
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Passos para clonar e configurar o projeto (itens 1, 2 e 3)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 1. Fazer Fork do Repositório
+1. Acesse o repositório original no GitHub.
+2. Clique no botão **Fork** no canto superior direito da página. Isso criará uma cópia do repositório original na sua conta do GitHub.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 2. Clonar o Repositório forkado localmente
+1. Na sua conta, vá até o repositório forkado no GitHub e clique no botão **Code**.
+2. Copie a URL do repositório forkado (exemplo `https://github.com/SEU-USUARIO/engenharia_software.git`).
+3. Abra o Visual Studio Code e o terminal integrado (pressione `Ctrl + '`).
+4. Navegue até o diretório onde deseja clonar o repositório:
+   ```bash
+   cd /caminho/para/diretorio
+   ```
+5. Clone o repositório:
+   ```bash
+   git clone https://github.com/SEU-USUARIO/engenharia_software.git
+   ```
+6. Entre no diretório clonado:
+   ```bash
+   cd nome-do-repositorio
+   ```
 
-## Learning Laravel
+### 3. Configurar o Repositório Remoto "Upstream"
+1. Adicione o repositório original como um repositório remoto chamado `upstream`:
+   ```bash
+   git remote add upstream https://github.com/rafaosss/engenharia_software.git
+   ```
+2. Verifique se o remote foi configurado corretamente:
+   ```bash
+   git remote -v
+   ```
+   O comando deve retornar algo como:
+   ```
+   origin    https://github.com/SEU-USUARIO/engenharia_software.git (fetch)
+   origin    https://github.com/SEU-USUARIO/engenharia_software.git (push)
+   upstream  https://github.com/rafaosss/engenharia_software.git  (fetch)
+   upstream  https://github.com/rafaosss/engenharia_software.git  (push)
+   ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Modificações e atualizações do código no GitHub via VS Code
+1. Para realizar as alterações no código, abra o VS Code e acesse o diretório do projeto, posteriormente abra o proejo utilizando a linha de comando:
+   ```bash
+   code .
+   ```
+2. Após realizar e salvar as alterações, verifique o status das modificações:
+   ```bash
+   git status
+   ```
+3. Adicione os arquivos modificados ao commit:
+   ```bash
+   git add .
+   ```
+4. Faça o commit das alterações:
+   ```bash
+   git commit -m "Descrição das alterações"
+   ```
+5. Envie alterações para o GitHub:
+  ```bash
+  git push origin main
+  ```
+6. Buscar atualizações do repositório original:
+  ```bash
+  git fetch upstream
+  ```
+7. Mesclar atualizações do repositório original:
+  ```bash
+  git merge upstream/main
+  ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+8. **IMPORTANTE** - Se não houver conflitos, o merge será realizado com sucesso. No entanto, se houver conflitos, o Git irá informar quais arquivos estão em conflito, e o colaborador precisará resolver esses conflitos manualmente. Se houver conflitos, o colaborador deve:
+- Abrir os arquivos em conflito no VS Code.
+- Localizar as seções marcadas com `<<<<<<<, =======, e >>>>>>>`.
+- Editar o arquivo para resolver o conflito, escolhendo as alterações que deseja manter.
+- Após resolver todos os conflitos, salvar os arquivos.
+- Adicionar e fazer Commit das alterações conforme itens 3 a 7.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+9. **ATENÇÃO** - Necessário realizar o `Create Pull Request`via Navegador Web no GitHub
+- Acesse o GitHub e vá para o seu repositório forkeado;
+- Verifique se alterações que você fez e enviou via git push para sua branch no repositório forkeado estão corretas.
+- Na página inicial do seu repositório forkeado, se houver diferenças entre a sua branch e a branch principal do repositório original, o GitHub exibirá o botão `Contribute` logo no topo da página.
+- Verifique a comparação das branches. O GitHub automaticamente irá comparar a branch base (normalmente main ou master do repositório original) com a sua branch de comparação (a branch onde você fez as mudanças no repositório forkeado). Se as branches corretas não forem selecionadas automaticamente, você pode ajustá-las manualmente na página.
+- Preencha o título e a descrição referente as alterações realizadas.
+- Revise as mudanças.
+- Crie o Pull Request clicando no botão verde `Create pull request` e o Pull Request será enviado ao repositório original, e os mantenedores do  projeto poderão revisar suas alterações, solicitar mudanças ou aceita-lá.
+- O acompanhamento do Pull Request (comentários, aprovações e status) pode ser realizado através da aba "Pull requests" tanto do repositório original quanto do seu repositório forkeado.
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Dicas Extras:
+- Sempre mantenha o repositório forkado atualizado com o repositório original para evitar conflitos.
+- Utilize as mensagens de commit para detalhar as modificações feitas.
